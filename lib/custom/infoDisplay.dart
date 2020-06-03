@@ -16,7 +16,7 @@ class _InfoWidgetState extends State<InfoWidget> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.redAccent,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(5),
       ),
       child: Padding(
@@ -24,13 +24,25 @@ class _InfoWidgetState extends State<InfoWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text("${this.valueName} : ${this.data}",
-              style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold
-              ),
-            )
+            Row(
+              children: <Widget>[
+                Text("${this.valueName}",
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
+                Text(" : ${this.data}",
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold
+                  ),
+                )
+              ],
+            ),
+            Divider()
           ],
         ),
       ),
