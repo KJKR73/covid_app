@@ -42,7 +42,7 @@ class _InfoWidgetState extends State<InfoWidget> {
                 )
               ],
             ),
-            Divider()
+            SizedBox(height: 6)
           ],
         ),
       ),

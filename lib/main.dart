@@ -1,4 +1,5 @@
 import 'package:covid19app/pages/home.dart';
+import 'package:covid19app/pages/individualDisplay.dart';
 import 'package:covid19app/pages/loading.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ void main() => runApp(MaterialApp(
   routes: {
     '/' : (context) => Loading(),
     '/home' : (context) => Home(),
+    '/individual' : (context) => DisplayIndividual()
   },
 ));
 

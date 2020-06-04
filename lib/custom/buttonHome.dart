@@ -19,7 +19,9 @@ class _ButtonHomeState extends State<ButtonHome> {
   Widget build(BuildContext context) {
     return RaisedButton(
       color: Colors.white,
-      onPressed: (){} ,
+      onPressed: (){
+        Navigator.pushNamed(context, '/individual');
+      } ,
       child: Row(
           children : <Widget>[
             Column(
