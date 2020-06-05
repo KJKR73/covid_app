@@ -1,34 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:covid19app/custom/infoDisplay.dart';
 
-class ButtonHome extends StatefulWidget {
+class ButtonHome extends StatelessWidget {
   String location;
   int totalConfirmed;
   dynamic size;
   ButtonHome({this.location, this.totalConfirmed, this.size});
   @override
-  _ButtonHomeState createState() => _ButtonHomeState(location: this.location, totalConfirmed: this.totalConfirmed, size: this.size);
-}
-
-class _ButtonHomeState extends State<ButtonHome> {
-  String location;
-  int totalConfirmed;
-  dynamic size;
-  _ButtonHomeState({this.location, this.totalConfirmed, this.size});
-  @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return new RaisedButton(
       color: Colors.white,
       onPressed: (){
         Navigator.pushNamed(context, '/individual');
       } ,
-      child: Row(
+      child: new Row(
           children : <Widget>[
-            Column(
+            new Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                SizedBox(height: 20),
-                Container(
+                new SizedBox(height: 20),
+                new Container(
                   color: Colors.white,
                   child: Padding(
                     padding: EdgeInsets.all(5.0),
@@ -42,9 +33,9 @@ class _ButtonHomeState extends State<ButtonHome> {
                     ),
                   ),
                 ),
-                SizedBox(height: 4),
+                new SizedBox(height: 4),
                 new InfoWidget(data: totalConfirmed, valueName: 'TotalConfirmed'),
-                SizedBox(height: 10)
+                new SizedBox(height: 10)
               ],
             )
           ]

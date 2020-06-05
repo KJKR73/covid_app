@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
 
-class InfoWidget extends StatefulWidget {
+class InfoWidget extends StatelessWidget {
   int data;
   String valueName;
   InfoWidget({this.data, this.valueName});
   @override
-  _InfoWidgetState createState() => _InfoWidgetState(data: this.data, valueName: this.valueName);
-}
-
-class _InfoWidgetState extends State<InfoWidget> {
-  int data;
-  String valueName;
-  _InfoWidgetState({this.data, this.valueName});
-  @override
   Widget build(BuildContext context) {
-    return Container(
+    return new Container(
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(5),
