@@ -5,13 +5,16 @@ class ButtonHome extends StatelessWidget {
   String location;
   int totalConfirmed;
   dynamic size;
-  ButtonHome({this.location, this.totalConfirmed, this.size});
+  Map individualData;
+  ButtonHome({this.location, this.totalConfirmed, this.size, this.individualData});
   @override
   Widget build(BuildContext context) {
     return new RaisedButton(
       color: Colors.white,
       onPressed: (){
-        Navigator.pushNamed(context, '/individual');
+        Navigator.pushNamed(context, '/individual', arguments: {
+          'individual_data' : individualData
+        });
       } ,
       child: new Row(
           children : <Widget>[
@@ -34,7 +37,7 @@ class ButtonHome extends StatelessWidget {
                   ),
                 ),
                 new SizedBox(height: 4),
-                new InfoWidget(data: totalConfirmed, valueName: 'TotalConfirmed'),
+                new InfoWidget(data: totalConfirmed, valueName: 'Total Confirmed'),
                 new SizedBox(height: 10)
               ],
             )

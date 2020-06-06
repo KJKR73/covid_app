@@ -21,14 +21,14 @@ class InfoWidget extends StatelessWidget {
                 Text("${this.valueName}",
                   style: TextStyle(
                       fontSize: 16,
-                      color: Colors.black,
+                      color: Colors.grey[700],
                       fontWeight: FontWeight.bold
                   ),
                 ),
                 Text(" : ${this.data}",
                   style: TextStyle(
                       fontSize: 16,
-                      color: Colors.red,
+                      color: Colors.lightBlue,
                       fontWeight: FontWeight.bold
                   ),
                 )

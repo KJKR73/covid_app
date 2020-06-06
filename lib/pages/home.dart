@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
         shrinkWrap: true,
         itemCount: searchData.length,
         itemBuilder: (context, i) {
-          return new ButtonHome(location: searchData[i]["Country"], totalConfirmed: searchData[i]["TotalConfirmed"], size: 20.0);
+          return new ButtonHome(location: searchData[i]["Country"], totalConfirmed: searchData[i]["TotalConfirmed"], size: 20.0, individualData: searchData[i]);
         }
     );
   }
@@ -52,9 +52,9 @@ class _HomeState extends State<Home> {
         itemCount: data['countries'].length + 1,
         itemBuilder: (context, index) {
           if (index == 0) {
-            return new ButtonHome(location: "Global", totalConfirmed: dataGlobal['TotalConfirmed'], size: 40.0);
+            return new ButtonHome(location: "Global", totalConfirmed: dataGlobal['TotalConfirmed'], size: 40.0, individualData: dataGlobal);
           }
-          return new ButtonHome(location: data['countries'][index]["Country"], totalConfirmed: data['countries'][index]["TotalConfirmed"], size: 20.0);
+          return new ButtonHome(location: data['countries'][index]["Country"], totalConfirmed: data['countries'][index]["TotalConfirmed"], size: 20.0, individualData: data['countries'][index]);
         }
     );
   }
@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
            new Padding(
             padding: EdgeInsets.all(0.0),
             child: Card(
-              color: Colors.red,
+              color: Colors.blue,
               child: ListTile(
                 leading: Icon(Icons.search, color: Colors.white),
                 title: TextField(
@@ -112,7 +112,7 @@ class _HomeState extends State<Home> {
     dataGlobal = data['global'];
     location = "Global";
     return new Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.blue[900],
       body: _buildBody()
     );
   }
