@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:covid19app/services/covid_data_fetch.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -31,8 +32,12 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Text("Loading"),
+      backgroundColor: Colors.blue[900],
+      body: Center(
+        child: SpinKitFadingCube(
+          color: Colors.white,
+          size: 50.0,
+        )
       )
     );
   }

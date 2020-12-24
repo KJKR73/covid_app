@@ -8,7 +8,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  TextEditingController controller = new TextEditingController();
+  final TextEditingController controller = TextEditingController();
+  ScrollController _scrollController = ScrollController();
+  int currentMax = 31;
   Map data = {};
   String location;
   Map dataGlobal;
@@ -30,7 +32,7 @@ class _HomeState extends State<Home> {
         shrinkWrap: true,
         itemCount: searchData.length,
         itemBuilder: (context, i) {
-          return new ButtonHome(location: searchData[i]["Country"], totalConfirmed: searchData[i]["TotalConfirmed"], size: 20.0, individualData: searchData[i]);
+          return new ButtonHome(location: searchData[i]["Country"], totalConfirmed: searchData[i]["TotalConfirmed"], size: 20.0, individualData: searchData[i], fontSize: 16.0);
         }
     );
   }
@@ -47,50 +49,53 @@ class _HomeState extends State<Home> {
             height: 1.0,
           );
         },
+        controller: _scrollController,
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: data['countries'].length + 1,
+        itemCount: data['countries'].length,
         itemBuilder: (context, index) {
           if (index == 0) {
-            return new ButtonHome(location: "Global", totalConfirmed: dataGlobal['TotalConfirmed'], size: 40.0, individualData: dataGlobal);
+            return new ButtonHome(location: "Global", totalConfirmed: dataGlobal['TotalConfirmed'], size: 40.0, individualData: dataGlobal, fontSize: 16.0);
           }
-          return new ButtonHome(location: data['countries'][index]["Country"], totalConfirmed: data['countries'][index]["TotalConfirmed"], size: 20.0, individualData: data['countries'][index]);
+          return new ButtonHome(location: data['countries'][index]["Country"], totalConfirmed: data['countries'][index]["TotalConfirmed"], size: 20.0, individualData: data['countries'][index], fontSize: 16.0);
         }
     );
   }
 
   Widget _buildBody(){
     return new SafeArea(
-      child: Column(
+      child: new Column(
         children: <Widget>[
            new Padding(
             padding: EdgeInsets.all(0.0),
-            child: Card(
+            child: new Card(
               color: Colors.blue,
-              child: ListTile(
+              child: new ListTile(
                 leading: Icon(Icons.search, color: Colors.white),
-                title: TextField(
+                title: new TextField(
                   onChanged: onSearchTextChanged,
-                  style: TextStyle(
+                  style: new TextStyle(
                       color: Colors.white,
                       letterSpacing: 1,
                       fontSize: 20
                   ),
-                  decoration: InputDecoration(
+                  decoration: new InputDecoration(
                       border: InputBorder.none,
                       hintText: "Search Country",
-                      hintStyle: TextStyle(
+                      hintStyle: new TextStyle(
                           color: Colors.white,
                           letterSpacing: 1,
                           fontSize: 20
                       )
                   ),
                 ),
-                trailing: IconButton(
+                trailing: new IconButton(
                   icon: new Icon(Icons.cancel, color: Colors.white),
                   onPressed: () {
-                    controller.clear();
-                    onSearchTextChanged("");
+                    setState(() {
+                      onSearchTextChanged("");
+                      this.controller.clear();
+                    });
                   },
                 ),
               ),
@@ -105,6 +110,8 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+
+
 
   @override
   Widget build(BuildContext context) {

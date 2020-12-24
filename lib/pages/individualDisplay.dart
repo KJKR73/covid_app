@@ -66,22 +66,22 @@ class _DisplayIndividualState extends State<DisplayIndividual> {
               itemCount: 6,
               itemBuilder: (context, index) {
                 if (index == 0){
-                  return new InfoWidget(data: data['individual_data']['TotalConfirmed'], valueName: "Total Confirmed");
+                  return Padding(padding : EdgeInsets.fromLTRB(6, 0, 6, 0),child: new InfoWidget(data: data['individual_data']['TotalConfirmed'], valueName: "Total Confirmed", fontSize: 21.0));
                 }
                 else if (index == 1){
-                  return new InfoWidget(data: data['individual_data']['TotalDeaths'], valueName: "Total Deaths");
+                  return Padding(padding : EdgeInsets.fromLTRB(6, 0, 6, 0),child: new InfoWidget(data: data['individual_data']['TotalDeaths'], valueName: "Total Deaths", fontSize: 21.0));
                 }
                 else if (index == 2){
-                  return new InfoWidget(data: data['individual_data']['NewConfirmed'], valueName: "New Confirmed");
+                  return Padding(padding : EdgeInsets.fromLTRB(6, 0, 6, 0),child: new InfoWidget(data: data['individual_data']['NewConfirmed'], valueName: "New Confirmed", fontSize: 21.0));
                 }
                 else if (index == 3){
-                  return new InfoWidget(data: data['individual_data']['NewRecovered'], valueName: "New Recovered");
+                  return Padding(padding : EdgeInsets.fromLTRB(6, 0, 6, 0),child: new InfoWidget(data: data['individual_data']['NewRecovered'], valueName: "New Recovered", fontSize: 21.0));
                 }
                 else if (index == 4){
-                  return new InfoWidget(data: data['individual_data']['NewDeaths'], valueName: "New Deaths");
+                  return Padding(padding : EdgeInsets.fromLTRB(6, 0, 6, 0),child: new InfoWidget(data: data['individual_data']['NewDeaths'], valueName: "New Deaths", fontSize: 21.0));
                 }
                 else{
-                  return new InfoWidget(data: data['individual_data']['TotalRecovered'], valueName: "Total Recovered");
+                  return Padding(padding : EdgeInsets.fromLTRB(6, 0, 6, 0),child: new InfoWidget(data: data['individual_data']['TotalRecovered'], valueName: "Total Recovered", fontSize: 21.0));
                 }
               },
             ),

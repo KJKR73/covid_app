@@ -11,6 +11,5 @@ class DataApi{
     Map data = jsonDecode(response.body);
     this.data = data;
     this.globalTrue = true;
-    print("Data Loaded Successfully");
   }
 }

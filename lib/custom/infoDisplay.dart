@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class InfoWidget extends StatelessWidget {
   int data;
   String valueName;
-  InfoWidget({this.data, this.valueName});
+  dynamic fontSize;
+  InfoWidget({this.data, this.valueName, this.fontSize});
   @override
   Widget build(BuildContext context) {
     return new Container(
@@ -20,14 +21,14 @@ class InfoWidget extends StatelessWidget {
               children: <Widget>[
                 Text("${this.valueName}",
                   style: TextStyle(
-                      fontSize: 16,
+                      fontSize: fontSize,
                       color: Colors.grey[700],
                       fontWeight: FontWeight.bold
                   ),
                 ),
                 Text(" : ${this.data}",
                   style: TextStyle(
-                      fontSize: 16,
+                      fontSize: fontSize,
                       color: Colors.lightBlue,
                       fontWeight: FontWeight.bold
                   ),
